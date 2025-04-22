@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StackBuddy.io 🚀
 
-## Getting Started
+**Your AI-Powered Dev Lead for Smarter, Faster Codebases**
 
-First, run the development server:
+StackBuddy is a developer-first SaaS platform that analyzes your codebase, audits your tech stack, and recommends better tools, packages, and architecture decisions — just like a senior engineer would. Whether you're a solo dev, indie hacker, or early-stage startup, StackBuddy helps you build with confidence and modern best practices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🔍 **Codebase Analysis**  
+  Upload or link your repo — we scan your code and detect languages, frameworks, and architecture patterns.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ⚙️ **Smart Stack Recommendations**  
+  Receive intelligent suggestions on how to upgrade or simplify your stack (e.g., “Switch from Axios to Fetch”, “Move to Prisma + PostgreSQL”).
 
-## Learn More
+- 🛠️ **AI Refactor Suggestions**  
+  Get actionable code improvement ideas, including pull-request-ready snippets.
 
-To learn more about Next.js, take a look at the following resources:
+- 📄 **Auto-Generated Docs**  
+  Instantly create README files, `.env.example`, onboarding instructions, and more.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 🧠 **Dev Chat Assistant (Pro)**  
+  Ask your codebase anything: "Where is the auth token handled?" or "What version of Tailwind is used?"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔧 Use Cases
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 🔰 Bootcamp grads & junior devs seeking mentorship-level guidance
+- 💼 Freelancers auditing unfamiliar client codebases
+- 🧱 Indie builders needing fast technical validation
+- 🚀 Startups improving stack decisions without hiring a lead engineer
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧪 Getting Started
+
+1. Visit: [https://stackbuddy.io](https://stackbuddy.io)
+2. Upload a ZIP file or connect your GitHub repo
+3. View your Stack Report, Refactor Suggestions, and Docs
+4. Upgrade to Pro for AI Chat, Refactor PRs, and unlimited scans
+
+---
+
+## 💡 Example
+
+**Input:**  
+Plain Node.js + raw SQL queries
+
+**StackBuddy Suggests:**  
+✅ Use Express for routing  
+✅ Replace SQL queries with Prisma ORM  
+✅ Add ESLint & Prettier config  
+✅ Generate `README.md` with setup instructions
+
+---
+
+## 🛠️ Tech Stack (Under the Hood)
+
+- **Frontend:** Next.js + TailwindCSS  
+- **Backend:** Node.js (Express/Fastify)  
+- **AI:** OpenAI GPT-4 API  
+- **Code Parsing:** Babel, Tree-sitter, ESLint engine  
+- **Deployment:** Vercel + GitHub OAuth  
+- **Optional:** Stripe (for Pro plan), Supabase or Clerk (auth)
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] VS Code Extension  
+- [ ] GitHub Bot for Auto Suggestions in PRs  
+- [ ] Stack Trends Dashboard  
+- [ ] CLI Tool for Local Use  
+- [ ] Team Workspaces + Shared Reports
+
+---
+
+## 🤝 Contributing
+
+StackBuddy is not open source *yet*, but we’re building in public. If you'd like to contribute ideas, feedback, or collaborate, reach out via [hello@stackbuddy.io](mailto:hello@stackbuddy.io) or create a GitHub issue.
+
+---
+
+## 📢 Stay Updated
+
+Follow our journey:  
+🐦 Twitter: [@StackBuddyIO](https://twitter.com/StackBuddyIO)  
+🧪 Devlog: [dev.stackbuddy.io](https://dev.stackbuddy.io) *(Coming soon)*
+
+---
+
+## ⚡ License
+
+© 2025 StackBuddy.io — All rights reserved.
+
