@@ -4,22 +4,24 @@ import { useEffect, useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '@/lib/firebase'
 import { useRouter } from 'next/navigation'
-import { getDatabase, ref, set } from 'firebase/database'
+import { getDatabase, ref, set, get, update } from 'firebase/database'
 import StackBuddyLoader from '@/components/stackBuddyLoader'
+import sha256 from 'crypto-js/sha256'
+import encHex from 'crypto-js/enc-hex'
 
 export default function SignupPage() {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(true) // 👈 for auth check
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         router.push(`/main/${user.uid}`)
       } else {
-        setLoading(false) // 👈 only show form when no user
+        setLoading(false)
       }
     })
 
@@ -30,11 +32,29 @@ export default function SignupPage() {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
       const user = userCredential.user
+      const db = getDatabase()
+
+      const emailHash = sha256(email.trim().toLowerCase()).toString(encHex)
+      const trackerRef = ref(db, `emailTracker/${emailHash}`)
+      const snapshot = await get(trackerRef)
+
+      if (snapshot.exists()) {
+        await update(trackerRef, {
+          totalSignups: (snapshot.val().totalSignups || 1) + 1,
+          lastSeen: Date.now(),
+        })
+      } else {
+        await set(trackerRef, {
+          emailHash,
+          firstSeen: Date.now(),
+          totalSignups: 1,
+          analysesUsed: 0
+        })
+      }
 
       const token = await user.getIdToken()
       document.cookie = `__session=${token}; path=/`
 
-      const db = getDatabase()
       await set(ref(db, 'users/' + user.uid), {
         name: user.email,
         analyses: [],
@@ -47,7 +67,7 @@ export default function SignupPage() {
     }
   }
 
-    if (loading) return <StackBuddyLoader />
+  if (loading) return <StackBuddyLoader />
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4 overflow-y-scroll scrollbar-hide">

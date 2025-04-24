@@ -37,14 +37,14 @@ export default function Navbar() {
       {!isSettings && (
         <button
           onClick={() => router.push('/settings')}
-          className="text-sm text-gray-600 hover:text-gray-900 transition"
+          className="text-sm text-gray-600 hover:text-gray-900 transition cursor-pointer"
         >
           Settings
         </button>
       )}
       <button
         onClick={handleLogout}
-        className="text-sm text-red-500 hover:text-red-600 transition"
+        className="text-sm text-red-500 hover:text-red-600 transition cursor-pointer"
       >
         Log Out
       </button>
@@ -52,14 +52,14 @@ export default function Navbar() {
   ) : isSignIn ? (
     <button
       onClick={() => router.push('/signup')}
-      className="text-sm text-gray-500 hover:text-gray-800 transition"
+      className="text-sm text-gray-500 hover:text-gray-800 transition cursor-pointer"
     >
       Sign Up
     </button>
   ) : (
     <button
       onClick={() => router.push('/signin')}
-      className="text-sm text-gray-500 hover:text-gray-800 transition"
+      className="text-sm text-gray-500 hover:text-gray-800 transition cursor-pointer"
     >
       Log In
     </button>
